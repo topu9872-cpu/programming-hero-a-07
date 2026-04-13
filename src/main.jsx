@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import FontPage from './Components/fontPage/FontPage'
 import RootLayout from './Components/router/Router'
+import TimeLine from './Components/timeline/TimeLine'
+import Stats from './Components/stats/Stats'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <FontPage />
+      },
+      {
+        path:'/timeline',
+        element:<TimeLine/>
+      },
+      {
+        path:'/stats',
+        element:<Stats/>
       }
     ]
   }
