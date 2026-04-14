@@ -31,7 +31,7 @@
     "email": "michael.chen@example.com",
     "days_since_contact": "20 ago",
     "status": "overdue",
-    "tags": ["gym", "fitness"],
+    "tags": ["Gym", "fitness"],
     "bio": "Workout partner. Always motivates me to stay fit.",
     "goal": 7,
     "next_due_date": "2025-07-15"
@@ -67,7 +67,7 @@
     "email": "fatima.noor@example.com",
     "days_since_contact": "8 ago",
     "status": "On-Track",
-    "tags": ["neighbor"],
+    "tags": ["neighbor","work"],
     "bio": "Friendly neighbor. We share homemade food sometimes.",
     "goal": 10,
     "next_due_date": "2025-07-22"

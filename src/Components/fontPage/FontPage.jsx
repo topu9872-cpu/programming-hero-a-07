@@ -1,23 +1,23 @@
+import AllFriends from "../allfriends/AllFriends";
+import Banner from "../MainPage/banner/Banner";
 
 
 
-import AllFriends from '../allfriends/AllFriends';
-import Banner from '../MainPage/banner/Banner';
+import NonDynamicCards from "./nonDynamicCards/NonDynamicCards";
 
-import NonDynamicCards from './nonDynamicCards/NonDynamicCards';
-
-import { useLoaderData } from 'react-router';
+import { useLoaderData } from "react-router";
 
 const FontPage = () => {
-    const data=useLoaderData();
+  const data = useLoaderData();
+
+  return (
+    <div>
+      <Banner />
+      <NonDynamicCards />
+      <AllFriends data={data} />
    
-    return (
-        <div>
-          <Banner/>  
-          <NonDynamicCards/>
-    <AllFriends data={data}/>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default FontPage;

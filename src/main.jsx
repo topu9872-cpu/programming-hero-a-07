@@ -29,10 +29,30 @@ const router = createBrowserRouter([
         path: "/stats",
         element: <Stats />,
       },
-       {
-   path: "/modal",
-   element:<Modal/>,
- },
+      
+      
+{
+
+path:'/modal/:id',
+loader:async({params})=>{
+  const alldata= await fetch('/Api.json');
+  const response= await alldata.json();
+  const data=response.find(item=>item.id===Number(params.id))
+  return data;
+},
+element:<Modal/>
+ 
+  
+}
+      
+      
+      
+      
+
+      
+      
+      
+      
     ],
   },
 ]);
