@@ -1,14 +1,21 @@
-import React from 'react';
+
+
+
+import AllFriends from '../allfriends/AllFriends';
 import Banner from '../MainPage/banner/Banner';
+
 import NonDynamicCards from './nonDynamicCards/NonDynamicCards';
-import DynamicCards from './dynamicCards/DynamicCards';
+
+import { useLoaderData } from 'react-router';
 
 const FontPage = () => {
+    const data=useLoaderData();
+   
     return (
         <div>
           <Banner/>  
           <NonDynamicCards/>
-          <DynamicCards/>
+    <AllFriends data={data}/>
         </div>
     );
 };
