@@ -1,13 +1,26 @@
+import { useContext } from "react";
 import { BiMessageDots } from "react-icons/bi";
 import { FiPhoneCall } from "react-icons/fi";
 import { LuTimerReset, LuVideo } from "react-icons/lu";
 import { useLoaderData } from "react-router";
+import { Context } from "../timeline/TimelineProvider";
+
 const Modal = () => {
+  const { timeline, setTimeline } = useContext(Context);
   const today = new Date().toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
   });
+  const handleClick = (friend, Interacrionstype) => {
+    const data = {
+      name: friend.name,
+      type: Interacrionstype,
+      date: friend.next_due_date,
+    };
+    setTimeline([...timeline, data]);
+  };
+
   const card = useLoaderData();
 
   if (!card) return <div>Loading...</div>;
@@ -91,7 +104,7 @@ const Modal = () => {
             <div>
               <h4 className="font-bold text-gray-700">Relationship Goal</h4>
               <p className="text-gray-500">
-                Connect every{" "}
+                Connect every
                 <span className="text-black font-bold">{card.goal} days</span>
               </p>
             </div>
@@ -102,18 +115,27 @@ const Modal = () => {
             <h4 className="font-bold text-gray-700 mb-4">Quick Check-In</h4>
             {/* i can`t grow the icons if i am doing that icons grow wite text */}
             <div className="grid grid-cols-3 gap-4">
-              <div className="items-center shadow-sm px-10 py-4 gap-1 w-50 grid grid-rows-1  justify-center text-2xl  mx-auto p-4 bg-gray-100 rounded-xl text-center cursor-pointer hover:border-green-500">
+              <button
+                onClick={() => handleClick(card, "Call")}
+                className="items-center shadow-sm px-10 py-4 gap-1 w-50 grid grid-rows-1  justify-center text-2xl  mx-auto p-4 bg-gray-100 rounded-xl text-center cursor-pointer hover:border-green-500"
+              >
                 <FiPhoneCall />
                 Call
-              </div>
-              <div className="items-center shadow-sm px-10 py-4 gap-1 w-50 grid grid-rows-1  justify-center text-2xl mx-auto p-4 bg-gray-100 rounded-xl text-center cursor-pointer hover:border-green-500">
+              </button>
+              <button
+                onClick={() => handleClick(card, "Text")}
+                className="items-center shadow-sm px-10 py-4 gap-1 w-50 grid grid-rows-1  justify-center text-2xl mx-auto p-4 bg-gray-100 rounded-xl text-center cursor-pointer hover:border-green-500"
+              >
                 <BiMessageDots />
                 Text
-              </div>
-              <div className="items-center shadow-sm px-10 py-4 gap-1 w-50 grid grid-rows-1  justify-center text-2xl mx-auto p-4 bg-gray-100 rounded-xl text-center cursor-pointer hover:border-green-500">
+              </button>
+              <button
+                onClick={() => handleClick(card, "Video")}
+                className="items-center shadow-sm px-10 py-4 gap-1 w-50 grid grid-rows-1  justify-center text-2xl mx-auto p-4 bg-gray-100 rounded-xl text-center cursor-pointer hover:border-green-500"
+              >
                 <LuVideo />
                 Video
-              </div>
+              </button>
             </div>
           </div>
           <div className="bg-white p-6 rounded-2xl shadow-md mb-10">
