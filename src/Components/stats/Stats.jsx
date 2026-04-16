@@ -28,7 +28,7 @@ const Stats = () => {
   );
 
   return timeline.length === 0 ? (
-    <div className="mx-40 my-10">
+    <div className="lg:mx-40 my-10">
     <div className="flex w-full h-80 justify-center mx-auto bg-gray-300 shadow-md items-center rounded-lg">
       <h1 className="text-4xl text-[#244d3f] text-center">No Cards Found</h1>
     </div>

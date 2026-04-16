@@ -1,35 +1,46 @@
-import React from "react";
-import { Link } from "react-router";
 
+import React, { useContext } from "react";
+import { Link } from "react-router";
+import { Context } from "../../Components/timeline/TimelineProvider";
 const AllFriends = ({ data }) => {
+  const { search, setSearch } = useContext(Context);
   return (
     <div className="mt-6 ">
-      <div className="flex justify-between mx-26 mt-20">
+      <div className="flex justify-between mx-12 md:mx:16 lg:mx-26 mt-20">
         <h2 className="text-xl font-bold ">Your Friends</h2>
         <div className="join">
           <div>
             <label className=" join-item">
               <input
-                className=" py-2"
+                className=" py-2 pl-2"
                 type="text"
                 placeholder="Search"
+                 value={search}
+            onChange={(e) => setSearch(e.target.value)}
                 required
+                
               />
             </label>
           </div>
-          <button className=" btn bg-[#244d3f]  text-white font-semibold join-item">
+          <button
+            onChange={() => setSearch(e.target.value)}
+            value={search}
+            className=" btn bg-[#244d3f]  text-white font-semibold join-item"
+          >
             Search
           </button>
         </div>
       </div>
 
-      <div className=" justify-center mt-4 grid grid-cols-4 gap-4 space-y-2 mx-auto items-center w-10/12">
+      <div className=" justify-center mt-4 grid grid-cols-2 lg:grid-cols-4 gap-4 space-y-2 mx-auto items-center w-10/12">
         {data.length === 0 ? (
           <div className="mx-auto flex justify-center items-center">
             <span className="loading loading-spinner text-success"></span>
           </div>
         ) : (
-          data.map((card) => (
+          data.filter((item) =>
+            item.name.toLowerCase().includes(search.toLowerCase())
+          ).map((card) => (
             <ul key={card.id}>
               <Link to={`/modal/${card.id}`}>
                 <li className="text-center bg-[#f8fafc] py-10 rounded-xl shadow-md">

@@ -7,6 +7,7 @@ const TimelineProvider = ({ children }) => {
   // const [call, setCall] = useState([]);
   // const [video, setVideo] = useState([]);
 const [timeline,setTimeline]=useState([]);
+const [search, setSearch]=useState('')
   // const addToText = item => {
     // setText((i) => [...i, item]);
   // };
@@ -28,6 +29,9 @@ const [timeline,setTimeline]=useState([]);
     // video,
     // setVideo,
     // addToVideo,
+    search,
+     setSearch,
+
     timeline,
     setTimeline
   };

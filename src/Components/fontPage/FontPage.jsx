@@ -1,8 +1,6 @@
 import AllFriends from "../allfriends/AllFriends";
 import Banner from "../MainPage/banner/Banner";
 
-
-
 import NonDynamicCards from "./nonDynamicCards/NonDynamicCards";
 
 import { useLoaderData } from "react-router";
@@ -15,7 +13,6 @@ const FontPage = () => {
       <Banner />
       <NonDynamicCards />
       <AllFriends data={data} />
-   
     </div>
   );
 };
