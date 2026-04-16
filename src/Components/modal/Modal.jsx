@@ -4,6 +4,8 @@ import { FiPhoneCall } from "react-icons/fi";
 import { LuTimerReset, LuVideo } from "react-icons/lu";
 import { useLoaderData } from "react-router";
 import { Context } from "../timeline/TimelineProvider";
+import { toast } from "react-toastify";
+
 
 const Modal = () => {
   const { timeline, setTimeline } = useContext(Context);
@@ -19,6 +21,11 @@ const Modal = () => {
       date: friend.next_due_date,
     };
     setTimeline([...timeline, data]);
+    if (card) {
+      toast.success(`${data.type} with ${data.name}`,{
+        position: "top-center"});
+     
+    }
   };
 
   const card = useLoaderData();
@@ -113,7 +120,7 @@ const Modal = () => {
 
           <div className="bg-white p-6 rounded-2xl shadow-md">
             <h4 className="font-bold text-gray-700 mb-4">Quick Check-In</h4>
-            {/* i can`t grow the icons if i am doing that icons grow wite text */}
+            {/* i can`t set the icons if i am doing that icons set wite text */}
             <div className="grid grid-cols-3 gap-4">
               <button
                 onClick={() => handleClick(card, "Call")}

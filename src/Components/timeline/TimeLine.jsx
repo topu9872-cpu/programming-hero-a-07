@@ -1,4 +1,4 @@
-import { useContext, useState, useMemo } from "react";
+import { useContext, useState } from "react";
 import { Context } from "./TimelineProvider";
 
 const TimeLine = () => {
@@ -16,12 +16,13 @@ const TimeLine = () => {
     year: "numeric",
   });
 
+
   return (
     <div className="mx-30 mt-10">
       <div className="grid space-y-5">
         <span className="text-4xl font-bold">Timeline</span>
 
-        {/* Use onChange on the select itself */}
+       
         <select
           className="select mb-20 border p-2 rounded"
           value={filter}
@@ -36,7 +37,7 @@ const TimeLine = () => {
 
       <div className="mb-16">
         {filteredTimeline.length === 0 ? (
-          <div className="flex w-full h-80 justify-center mx-auto bg-gray-300 items-center rounded-lg">
+          <div className="flex w-full h-80 justify-center mx-auto bg-gray-300 shadow-md items-center rounded-lg">
             <h1 className="text-4xl text-[#244d3f] text-center">
               No Cards Found
             </h1>
@@ -64,9 +65,16 @@ const TimeLine = () => {
             </ul>
           ))
         )}
+        
+     
       </div>
+      
     </div>
+    
   );
+  
+ 
 };
+
 
 export default TimeLine;
