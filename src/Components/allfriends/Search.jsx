@@ -10,7 +10,7 @@ const DataList = ({ query }) => {
         const data = await res.json();
         setUsers(data);
       } catch (error) {
-        console.log(error);
+       
       }
     };
 
