@@ -6,7 +6,6 @@ import { useLoaderData } from "react-router";
 import { Context } from "../timeline/TimelineProvider";
 import { toast } from "react-toastify";
 
-
 const Modal = () => {
   const { timeline, setTimeline } = useContext(Context);
   const today = new Date().toLocaleDateString("en-US", {
@@ -22,9 +21,9 @@ const Modal = () => {
     };
     setTimeline([...timeline, data]);
     if (card) {
-      toast.success(`${data.type} with ${data.name}`,{
-        position: "top-center"});
-     
+      toast.success(`${data.type} with ${data.name}`, {
+        position: "top-center",
+      });
     }
   };
 

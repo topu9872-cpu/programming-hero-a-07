@@ -10,7 +10,7 @@ const Error = () => {
       </h2>
 
       <p className="mt-2 text-gray-500 max-w-md">
-        The page you are looking for doesn’t exist or has been moved.
+        The page you are looking for doesn`t exist or has been moved.
       </p>
 
       <Link to="/">

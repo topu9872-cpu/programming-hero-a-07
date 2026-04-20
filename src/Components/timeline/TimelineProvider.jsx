@@ -6,18 +6,18 @@ const TimelineProvider = ({ children }) => {
   // const [text, setText] = useState([]);
   // const [call, setCall] = useState([]);
   // const [video, setVideo] = useState([]);
-const [timeline,setTimeline]=useState([]);
-const [search, setSearch]=useState('')
+  const [timeline, setTimeline] = useState([]);
+  
   // const addToText = item => {
-    // setText((i) => [...i, item]);
+  // setText((i) => [...i, item]);
   // };
 
   // const addToCall =  item => {
-    // setCall((i) => [...i, item]);
+  // setCall((i) => [...i, item]);
   // };
 
   // const addToVideo = item => {
-    // setVideo((i) => [...i, item]);
+  // setVideo((i) => [...i, item]);
   // };
   const data = {
     // addToText,
@@ -29,11 +29,9 @@ const [search, setSearch]=useState('')
     // video,
     // setVideo,
     // addToVideo,
-    search,
-     setSearch,
-
+    
     timeline,
-    setTimeline
+    setTimeline,
   };
   return <Context.Provider value={data}>{children}</Context.Provider>;
 };

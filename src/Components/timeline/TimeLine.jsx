@@ -1,28 +1,29 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { Context } from "./TimelineProvider";
 
 const TimeLine = () => {
   const { timeline } = useContext(Context);
   const [filter, setFilter] = useState("All");
-
-  const filteredTimeline =
-    filter === "All"
-      ? timeline
-      : timeline.filter((item) => item.type === filter);
-
+  /* useMemo work as a Memory this is good for bigst data atheor ways 
+  it don`t need this and if we use second brcket then we have to  use return after function */
+  const filteredTimeline = useMemo(
+    () =>
+      filter === "All"
+        ? timeline
+        : timeline.filter((item) => item.type === filter),
+    [filter, timeline],
+  );
   const today = new Date().toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
     year: "numeric",
   });
 
-
   return (
     <div className="mx-30 mt-10">
       <div className="grid space-y-5">
         <span className="text-4xl font-bold">Timeline</span>
 
-       
         <select
           className="select mb-20 border p-2 rounded"
           value={filter}
@@ -65,16 +66,9 @@ const TimeLine = () => {
             </ul>
           ))
         )}
-        
-     
       </div>
-      
     </div>
-    
   );
-  
- 
 };
-
 
 export default TimeLine;

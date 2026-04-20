@@ -21,11 +21,13 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch("Api.json"),
+        HydrateFallback: () => (
+          <span className="loading loading-spinner text-success"></span>
+        ),
         element: <FontPage />,
       },
       {
         path: "/timeline",
-
 
         element: <TimeLine />,
       },
@@ -45,16 +47,19 @@ const router = createBrowserRouter([
         element: <Modal />,
       },
     ],
-    errorElement:<Error/>
+    errorElement: <Error />,
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-   <TimelineProvider>
-     <ToastContainer />
- <RouterProvider router={router} />
-   </TimelineProvider>
-   
+    <Suspense
+      fallback={<span className="loading loading-spinner text-success"></span>}
+    >
+      <TimelineProvider>
+        <ToastContainer />
+        <RouterProvider router={router} />
+      </TimelineProvider>
+    </Suspense>
   </StrictMode>,
 );
